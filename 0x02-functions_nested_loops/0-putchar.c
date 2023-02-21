@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	int msg[] = {95, 112, 117, 116, 99, 104, 97, 114, 92, 110};
+	int msg[] = {95, 112, 117, 116, 99, 104, 97, 114};
 	int n, i;
 
 	n = sizeof(msg) / sizeof(int);
@@ -16,5 +16,6 @@ int main(void)
 	{
 		_putchar(msg[i]);
 	}
+	_putchar('\n');
 	return (0);
 }
