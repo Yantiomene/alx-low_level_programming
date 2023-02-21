@@ -13,6 +13,10 @@ int print_last_digit(int n)
 	if (n >= 0)
 	{
 		d = n % 10;
+	} else if (n == -2147483648)
+	{
+		n = -n - 1;
+		d = n % 10 + 1;
 	} else
 	{
 		d = -n % 10;
