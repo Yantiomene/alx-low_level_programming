@@ -21,6 +21,6 @@ int main(void)
 		fb1 = fb2;
 		fb2 = fb;
 	}
-	printf("%ld \n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
