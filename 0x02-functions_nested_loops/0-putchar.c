@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
  * main - writes _putchar
@@ -8,6 +8,13 @@
 
 int main(void)
 {
-	write(1, "_putchar\n", 9);
+	int msg[] = {95, 112, 117, 116, 99, 104, 97, 114, 92, 110};
+	int n, i;
+
+	n = sizeof(msg) / sizeof(int);
+	for (i = 0; i < n; i++)
+	{
+		_putchar(msg[i]);
+	}
 	return (0);
 }
