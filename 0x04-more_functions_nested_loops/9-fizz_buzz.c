@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - print number from 1 to 100 and replace mult of 3 & 5 by Fizz Buzz resp
+ * main - print number from 1 to 100 and replace mult of 3 & 5 by Fizz Buzz
  *
  * Return: Always 0
  */
