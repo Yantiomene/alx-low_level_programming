@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#define NUMBER (612852475143)
-
 /**
  * main - find an print the largest prime factor of NUMBER
  *
@@ -9,23 +7,17 @@
  */
 int main(void)
 {
-	long f, lf, mid, i;
+	long int n, f;
 
-	mid = lround(sqrt(NUMBER));
-	lf = 2;
-	for (f = 3; f < mid; f++)
+	n = 612852475143;
+	for (f = 3; f <= n; f++)
 	{
-		for (i =  2; i < lround(sqrt(f)); i++)
+		if (n % f == 0)
 		{
-			if (f % i == 0)
-				break;
-		}
-		if ((i == lround(sqrt(f))) && (NUMBER % f == 0))
-		{
-			if (f > lf)
-				lf = f;
+			n /= f;
+			f--;
 		}
 	}
-	printf("%ld\n", lf);
+	printf("%ld\n", f);
 	return (0);
 }
