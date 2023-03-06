@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stddef.h>
 /**
  * _strpbrk - searches a string for any of a set of bytes
  * @s: string in which to make a search
@@ -21,5 +21,5 @@ char *_strpbrk(char *s, char *accept)
 			}
 		}
 	}
-	return ('\0');
+	return (NULL);
 }
