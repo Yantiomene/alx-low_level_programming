@@ -39,7 +39,7 @@ char **strtow(char *str)
 		c++;
 	}
 	aw = malloc((nw + 1) * sizeof(char *));
-	if (aw == NULL)
+	if (aw == NULL || nw == 0)
 	{
 		free(aw);
 		return (NULL);
