@@ -11,12 +11,12 @@ void is_valid_fo(int fd_from, int fd_to, char *argv[])
 {
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "%s %s\n", "Error: Can't write to", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "%s %s\n", "Error: Can't read from file ", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 }
@@ -31,7 +31,7 @@ void is_close(int fd_close, int fd)
 {
 	if (fd_close == -1)
 	{
-		dprintf(STDERR_FILENO, "%s %d\n", "Error: Can't close fd ", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 		num_write = write(fd_to, buf, num_read);
 		if (num_write == -1)
 		{
-			is_valid_fo(0, -1, argv);
+			is_valid_fo(0, num-write, argv);
 		}
 	} while (num_read == 1024);
 	fd_close = close(fd_from);
