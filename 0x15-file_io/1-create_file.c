@@ -10,7 +10,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	ssize_t num_write = 0;
+	ssize_t num_write = 0, len;
 
 	if (!filename)
 		return (-1);
@@ -19,7 +19,9 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	if (!text_content)
 		text_content = "";
-	num_write = write(fd, text_content, strlen(text_content));
+	for (len = 0; text_content[len]; len++)
+		;
+	num_write = write(fd, text_content, len);
 	if (num_write == STDERR_FILENO)
 		return (-1);
 	close(fd);
