@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 		num_write = write(fd_to, buf, num_read);
 		if (num_write == -1)
 		{
-			is_valid_fo(0, num-write, argv);
+			is_valid_fo(0, num_write, argv);
 		}
 	} while (num_read == 1024);
 	fd_close = close(fd_from);
