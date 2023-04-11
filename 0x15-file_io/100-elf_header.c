@@ -108,7 +108,10 @@ void print_data(u_int8_t *buf)
  */
 void print_version(u_int8_t *buf)
 {
-	printf("  Version:                           %d (current)\n", buf[6]);
+	printf("  Version:                           %d", buf[6]);
+	if (buf[6] == EV_CURRENT)
+		printf(" (current)");
+	printf("\n");
 }
 
 /**
