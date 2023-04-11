@@ -178,14 +178,44 @@ void print_type(u_int16_t type)
  */
 void print_entry(elf_t *elf)
 {
+	u_int32_t r1 = 0;
+	u_int64_t r2 = 0;
+
 	printf("  Entry point address:               0x");
-	if (elf->ident[4] == 1)
+	switch (elf->ident[5])
 	{
-		printf("%x", elf->entry32);
-	}
-	else if (elf->ident[4] == 2)
-	{
-		printf("%lx", elf->entry64);
+	case 1:
+		if (elf->ident[4] == 1)
+		{
+			printf("%x", elf->entry32);
+		}
+		else if (elf->ident[4] == 2)
+		{
+			printf("%lx", elf->entry64);
+		}
+		break;
+	case 2:
+		if (elf->ident[4] == 1)
+		{
+			while (elf->entry32 != 0)
+			{
+				r1 = r1 * 10;
+				r1 = r1 + elf->entry32 % 10;
+				elf->entry32 /= 10;
+			}
+			printf("%x", r1);
+		}
+		else if (elf->ident[4] == 2)
+		{
+			while (elf->entry64 != 0)
+			{
+				r2 = r2 * 10;
+				r2 = r2 + elf->entry64 % 10;
+				elf->entry64 /= 10;
+			}
+			printf("%lx", r2);
+		}
+		break;
 	}
 	printf("\n");
 }
