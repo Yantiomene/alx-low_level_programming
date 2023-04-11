@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <elf.h>
 
 #define READ(fd, var) read(fd, &(var), sizeof(var))
 
