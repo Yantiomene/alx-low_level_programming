@@ -41,7 +41,7 @@ int bin_search_recur(int *array, size_t l, size_t r, int val)
 	if (array[m] == val)
 	{
 		if (m > l)
-			return (bin_search_recur(array, l, m, val));
+			return (bin_search_recur(array, l, m + 1, val));
 		return (m);
 	}
 	if (array[m] < val)
